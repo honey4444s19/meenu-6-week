@@ -14,20 +14,20 @@ body{
     background:black;
 }
 
-/* NEW BACKGROUND (FULL IMAGE, NO CROP) */
+/* SINGLE IMAGE BACKGROUND (NO CROPPING) */
 .bg{
     position:fixed;
     width:100%;
     height:100%;
     top:0;
     left:0;
-    background:url('Photo2.jpeg') center center no-repeat;
-    background-size:contain;
-    background-color:black;
-    z-index:-3;
+    background:url('photo.jpeg') center center no-repeat;
+    background-size:contain;   /* IMPORTANT: full image visible */
+    background-color:black;    /* fills empty space */
+    z-index:-2;
 }
 
-/* DARK OVERLAY FOR TEXT READABILITY */
+/* dark overlay for readability */
 .overlay{
     position:fixed;
     width:100%;
@@ -35,31 +35,18 @@ body{
     top:0;
     left:0;
     background:rgba(0,0,0,0.35);
-    z-index:-2;
-}
-
-/* LEFT SIDE OLD IMAGE PANEL */
-.left-image{
-    position:fixed;
-    left:0;
-    top:0;
-    width:28%;
-    height:100%;
-    background:url('photo.jpeg') center/cover no-repeat;
     z-index:-1;
-    border-right:2px solid rgba(255,255,255,0.2);
 }
 
-/* MAIN CONTENT SHIFTED RIGHT */
+/* content */
 .container{
-    margin-left:30%;
-    padding:25px;
+    padding:20px;
     text-align:center;
 }
 
 h1{
     color:#ff4d6d;
-    margin-top:20px;
+    margin-top:25px;
 }
 
 .box{
@@ -78,6 +65,7 @@ button{
     background:#ff1744;
     color:white;
     font-size:14px;
+    cursor:pointer;
 }
 
 button:hover{
@@ -90,7 +78,7 @@ button:hover{
     color:#ffccd5;
 }
 
-/* HEARTS */
+/* hearts */
 .heart{
     position:absolute;
     top:-50px;
@@ -112,9 +100,6 @@ button:hover{
 
 <div class="bg"></div>
 <div class="overlay"></div>
-
-<!-- LEFT OLD IMAGE -->
-<div class="left-image"></div>
 
 <div class="container">
 
