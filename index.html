@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +22,7 @@ body{
     height:100%;
     top:0;
     left:0;
-    background:url('photo.jpg') center/cover no-repeat;
+    background:url('photo.jpeg') center/cover no-repeat;
     filter:brightness(0.35);
     z-index:-2;
 }
@@ -106,7 +105,7 @@ button:hover{
 
 <!-- MUSIC + VOICE -->
 <button onclick="document.getElementById('music').play()">🎵 Play Music</button>
-<audio id="music" src="music.mp3"></audio>
+<audio id="music" src="music.mpeg"></audio>
 
 <button onclick="document.getElementById('voice').play()">🎤 Play Voice Message</button>
 <audio id="voice" src="voice.mp3"></audio>
@@ -155,7 +154,7 @@ Until we’re together… until you’re 10 Billion% sure ❤️
 
 <script>
 
-// red spider lilies
+// falling flowers
 for(let i=0;i<35;i++){
     let f=document.createElement('div');
     f.className='flower';
