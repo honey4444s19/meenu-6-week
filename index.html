@@ -10,25 +10,24 @@ body{
     margin:0;
     font-family: Georgia, serif;
     color:white;
-    text-align:center;
     overflow:hidden;
     background:black;
 }
 
-/* FULL A4 IMAGE (no crop) */
+/* NEW BACKGROUND (FULL IMAGE, NO CROP) */
 .bg{
     position:fixed;
     width:100%;
     height:100%;
     top:0;
     left:0;
-    background:url('photo.jpeg') center center no-repeat;
+    background:url('Photo2.jpeg') center center no-repeat;
     background-size:contain;
     background-color:black;
-    z-index:-2;
+    z-index:-3;
 }
 
-/* soft overlay so text readable but image visible */
+/* DARK OVERLAY FOR TEXT READABILITY */
 .overlay{
     position:fixed;
     width:100%;
@@ -36,16 +35,39 @@ body{
     top:0;
     left:0;
     background:rgba(0,0,0,0.35);
+    z-index:-2;
+}
+
+/* LEFT SIDE OLD IMAGE PANEL */
+.left-image{
+    position:fixed;
+    left:0;
+    top:0;
+    width:28%;
+    height:100%;
+    background:url('photo.jpeg') center/cover no-repeat;
     z-index:-1;
+    border-right:2px solid rgba(255,255,255,0.2);
+}
+
+/* MAIN CONTENT SHIFTED RIGHT */
+.container{
+    margin-left:30%;
+    padding:25px;
+    text-align:center;
 }
 
 h1{
     color:#ff4d6d;
-    margin-top:40px;
+    margin-top:20px;
 }
 
-.container{
-    padding:20px;
+.box{
+    background:rgba(0,0,0,0.5);
+    padding:15px;
+    border-radius:15px;
+    margin:15px auto;
+    max-width:600px;
 }
 
 button{
@@ -60,14 +82,6 @@ button{
 
 button:hover{
     transform:scale(1.05);
-}
-
-.box{
-    background:rgba(0,0,0,0.5);
-    padding:15px;
-    border-radius:15px;
-    margin:15px auto;
-    max-width:600px;
 }
 
 .reason{
@@ -99,6 +113,9 @@ button:hover{
 <div class="bg"></div>
 <div class="overlay"></div>
 
+<!-- LEFT OLD IMAGE -->
+<div class="left-image"></div>
+
 <div class="container">
 
 <h1>❤️ 6 Weeks With Meenu ❤️</h1>
@@ -108,7 +125,6 @@ button:hover{
 <p>Every moment with you feels like home ❤️</p>
 </div>
 
-<!-- REASONS -->
 <div class="box">
 <h3>❤️ 6 Reasons I Love You</h3>
 
@@ -127,7 +143,6 @@ button:hover{
 <p class="reason" id="r5">I love your big heart and beauty… I can’t compare you to anyone else.</p>
 </div>
 
-<!-- SECRET -->
 <div class="box">
 <h3>🔐 Secret Message</h3>
 <button onclick="toggleSecret()">Open</button>
@@ -144,7 +159,7 @@ Until we’re together… ❤️
 
 <script>
 
-// HEARTS ALWAYS SPAWNING (infinite)
+// infinite hearts
 const hearts = ["❤️","💖","💜","🩷","🤍"];
 
 function spawnHeart(){
@@ -161,7 +176,6 @@ function spawnHeart(){
     setTimeout(()=>h.remove(), 9000);
 }
 
-// keep spawning forever
 setInterval(spawnHeart, 200);
 
 // reasons
