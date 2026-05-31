@@ -14,20 +14,20 @@ body{
     background:black;
 }
 
-/* BACKGROUND IMAGE (photo4.jpeg) */
+/* BACKGROUND IMAGE */
 .bg{
     position:fixed;
     width:100%;
     height:100%;
     top:0;
     left:0;
-    background:url('photo4.jpeg') center center no-repeat;
-    background-size:contain;   /* full image visible */
+    background:url('photo4.png') center center no-repeat;
+    background-size:contain;
     background-color:black;
     z-index:-2;
 }
 
-/* DARK OVERLAY */
+/* OVERLAY */
 .overlay{
     position:fixed;
     width:100%;
@@ -46,9 +46,10 @@ body{
 
 h1{
     color:#ff4d6d;
-    margin-top:25px;
+    margin-top:20px;
 }
 
+/* BOX STYLE */
 .box{
     background:rgba(0,0,0,0.5);
     padding:15px;
@@ -57,6 +58,14 @@ h1{
     max-width:600px;
 }
 
+/* COUNTER */
+.counter{
+    font-size:18px;
+    color:#ffccd5;
+    font-weight:bold;
+}
+
+/* BUTTONS */
 button{
     margin:10px;
     padding:12px 18px;
@@ -106,7 +115,12 @@ button:hover{
 <h1>❤️ 6 Weeks With Meenu ❤️</h1>
 
 <div class="box">
-<p><b>Started on:</b> 18th April</p>
+<p><b>Started on:</b> 18 April 2026</p>
+
+<div class="counter" id="counter">
+Loading love timer...
+</div>
+
 <p>Every moment with you feels like home ❤️</p>
 </div>
 
@@ -133,10 +147,9 @@ button:hover{
 <button onclick="toggleSecret()">Open</button>
 
 <p id="secret" style="display:none; margin-top:10px; color:#ffccd5; line-height:1.6;">
-Okay Meenu, we’ve completed 6 weeks today ❤️<br><br>
+Okay Meenu, we’ve been together through every moment ❤️<br><br>
 You are my home, my safe place.<br><br>
-I’ll always be there for you.<br><br>
-Until we’re together… ❤️
+Forever starts here ❤️
 </p>
 </div>
 
@@ -144,7 +157,31 @@ Until we’re together… ❤️
 
 <script>
 
-// infinite hearts
+// ❤️ LIVE COUNTER
+const startDate = new Date("2026-04-18T00:00:00");
+
+function updateCounter(){
+    const now = new Date();
+    const diff = now - startDate;
+
+    let seconds = Math.floor(diff / 1000);
+    let minutes = Math.floor(seconds / 60);
+    let hours = Math.floor(minutes / 60);
+    let days = Math.floor(hours / 24);
+
+    hours = hours % 24;
+    minutes = minutes % 60;
+    seconds = seconds % 60;
+
+    document.getElementById("counter").innerHTML =
+        `${days} Days ❤️ ${hours} Hours ❤️ ${minutes} Minutes ❤️ ${seconds} Seconds`;
+}
+
+setInterval(updateCounter, 1000);
+updateCounter();
+
+
+// hearts animation
 const hearts = ["❤️","💖","💜","🩷","🤍"];
 
 function spawnHeart(){
@@ -163,12 +200,13 @@ function spawnHeart(){
 
 setInterval(spawnHeart, 200);
 
+
 // reasons
 function showReason(i){
     document.getElementById('r'+i).style.display='block';
 }
 
-// secret toggle
+// secret
 function toggleSecret(){
     let s=document.getElementById('secret');
     s.style.display = s.style.display==='none' ? 'block' : 'none';
